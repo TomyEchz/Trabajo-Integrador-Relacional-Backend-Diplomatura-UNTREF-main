@@ -1,7 +1,7 @@
 const Contenido = require('../models/contenido.js');
 
 const getAllContenidos = async () => {
-    const contenidos = await Contenido.findAll();
-    return contenidos;
+    return await Contenido.findAll(); 
 }
-module.exports = { getAllContenidos }
+
+module.exports = { getAllContenidos }  
