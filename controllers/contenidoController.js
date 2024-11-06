@@ -5,7 +5,7 @@ const getAllContenidos = async (req, res) => {
 
     try {
         const contenidos = await contenidoService.getAllContenidos();
-        if (!contenido) (
+        if (!contenidos) (
             res.status(404).send({ message: 'No se encontraron contenidos.' })
         )
         res.status(200).json(contenidos);
@@ -14,4 +14,4 @@ const getAllContenidos = async (req, res) => {
     }
 }
 
-module.exports = { getAllContenidos }
+module.exports = { getAllContenidos }  
