@@ -27,4 +27,27 @@ const getContenidoById = async (req, res) => {
     }
 }
 
-module.exports = { getAllContenidos, getContenidoById }  
+const createContenido = async (req, res) => {
+    try {
+        const contenido = await contenidoService.createContenido(req.body);
+        return res.status(201).json(contenido);
+    } catch (error) {
+        res.status(500).send({ error: 'No se pudo crear el contenido.' });
+    }
+}
+
+ const deleteContenido = async (req, res) => {
+    try {
+        const { id } = req.params;
+        const contenido = await contenidoService.deleteContenido(id);
+        if (!contenido) {
+            return res.status(404).send({ message: 'Contenido no encontrado.' });
+        }
+        await contenido.destroy();
+            return res.status(200).send({ message: 'Contenido eliminado exitosamente.'});
+    } catch (error) {
+        res.status(500).send({ error: 'No se pudo eliminar el contenido.' });
+    }
+ }
+
+module.exports = { getAllContenidos, getContenidoById, deleteContenido, createContenido, }  

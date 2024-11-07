@@ -7,4 +7,13 @@ const getAllContenidos = async () => {
 const getContenidoById = async (id) => {
     return await Contenido.findByPk(id);
 }
-module.exports = { getAllContenidos, getContenidoById }  
+
+const createContenido = async (datos) => {
+    return await Contenido.create(datos);
+}
+
+const deleteContenido = async (id) => {
+    return await Contenido.findByPk(id);
+}
+
+module.exports = { getAllContenidos, getContenidoById, deleteContenido, createContenido, }  
