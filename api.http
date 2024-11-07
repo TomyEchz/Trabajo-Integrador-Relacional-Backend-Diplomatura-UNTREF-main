@@ -8,6 +8,10 @@ GET http://localhost:3000/contenido
 GET http://localhost:3000/contenido/12
 
 ###
+#filtrar el contenido por categoría
+GET http://localhost:3000/contenido/categorias/2
+
+###
 #crear un nuevo contenido
 
 POST http://localhost:3000/contenido

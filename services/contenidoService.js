@@ -8,6 +8,11 @@ const getContenidoById = async (id) => {
     return await Contenido.findByPk(id);
 }
 
+
+const filtrarContenidos = async (filtro) =>{
+    return await Contenido.findAll(filtro);
+}
+
 const createContenido = async (datos) => {
     return await Contenido.create(datos);
 }
@@ -21,4 +26,4 @@ const deleteContenido = async (id) => {
 }
 
 
-module.exports = { getAllContenidos, getContenidoById, deleteContenido, createContenido, updateContenido, }  
+module.exports = { getAllContenidos, getContenidoById, deleteContenido, createContenido, updateContenido, filtrarContenidos }  
