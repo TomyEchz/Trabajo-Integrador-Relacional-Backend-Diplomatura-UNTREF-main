@@ -36,6 +36,20 @@ const createContenido = async (req, res) => {
     }
 }
 
+const updateContenido = async (req, res) => {
+    try {
+        const { id } = req.params;
+        const contenido = await contenidoService.getContenidoById(id);
+        if (!contenido) {
+            return res.status(404).send({ message: 'Contenido no encontrado.' });
+        }
+        await contenido.update(req.body);
+        return res.status(200).json(contenido);
+    } catch (error) {
+        res.status(500).send({ error: 'No se pudo actualizar el contenido.' });
+    }
+}
+
  const deleteContenido = async (req, res) => {
     try {
         const { id } = req.params;
@@ -50,4 +64,4 @@ const createContenido = async (req, res) => {
     }
  }
 
-module.exports = { getAllContenidos, getContenidoById, deleteContenido, createContenido, }  
+module.exports = { getAllContenidos, getContenidoById, deleteContenido, createContenido, updateContenido, }  

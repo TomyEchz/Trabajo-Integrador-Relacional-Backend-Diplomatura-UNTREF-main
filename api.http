@@ -26,6 +26,20 @@ Content-Type: application/json
 }
 
 ###
+#actualizar un contenido
+PUT http://localhost:3000/contenido/5
+Content-Type: application/json
+
+{
+      "poster": "./posters/22.jpg",
+      "titulo": "abc",
+      "fk_categoria": 2,
+      "resumen": "12345",
+      "temporadas": "N/A",
+      "trailer": "https://www.youtube.com/embed/AGQ7OkmIx4Q",
+      "duracion": 97,
+}
+###
 #eliminar un contenido
 
 DELETE http://localhost:3000/contenido/11

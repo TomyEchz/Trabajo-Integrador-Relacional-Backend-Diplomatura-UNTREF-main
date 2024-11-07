@@ -5,6 +5,7 @@ const contenidoController = require('../controllers/contenidoController.js')
 router.get('/', contenidoController.getAllContenidos);
 router.get('/:id', contenidoController.getContenidoById);
 router.post("/", contenidoController.createContenido);
+router.put("/:id", contenidoController.updateContenido);
 router.delete('/:id', contenidoController.deleteContenido);
 
 module.exports = router;
